@@ -33,7 +33,7 @@ export const StepIndicator = ({ currentStep = 1 }) => {
     {
       id: 5,
       title: t('stepGenerate'),
-      isCompleted: Boolean(generatedPackage)
+      isCompleted: Boolean(generatedPackage) && currentStep === 5
     }
   ];
 
