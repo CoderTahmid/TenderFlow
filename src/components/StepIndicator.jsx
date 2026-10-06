@@ -4,34 +4,36 @@ import { getTranslation } from '../translations';
 import { FiCheck } from 'react-icons/fi';
 
 export const StepIndicator = ({ currentStep = 1 }) => {
-  const { language, tender, uploadedFiles, validationSummary } = useTender();
+  const { language, tender, uploadedFiles, matches, validationSummary, generatedPackage } = useTender();
   const t = (key) => getTranslation(language, key);
+
+  const matchedCount = Object.keys(matches).length;
 
   const steps = [
     {
       id: 1,
       title: t('stepTender'),
-      isCompleted: Boolean(tender && tender.tender_id)
+      isCompleted: Boolean(tender && tender.tender_id) && currentStep > 1
     },
     {
       id: 2,
       title: t('stepDocuments'),
-      isCompleted: uploadedFiles.length > 0
+      isCompleted: uploadedFiles.length > 0 && currentStep > 2
     },
     {
       id: 3,
       title: t('stepMatching'),
-      isCompleted: validationSummary.totalCount > 0 && (validationSummary.okCount + validationSummary.notProvidedCount) > 0
+      isCompleted: matchedCount > 0 && currentStep > 3
     },
     {
       id: 4,
       title: t('stepValidation'),
-      isCompleted: validationSummary.isReady
+      isCompleted: validationSummary.isReady && currentStep > 4
     },
     {
       id: 5,
       title: t('stepGenerate'),
-      isCompleted: false
+      isCompleted: Boolean(generatedPackage)
     }
   ];
 
@@ -41,7 +43,7 @@ export const StepIndicator = ({ currentStep = 1 }) => {
         <ol className="flex items-center justify-between w-full">
           {steps.map((step, idx) => {
             const isActive = currentStep === step.id;
-            const isCompleted = step.isCompleted || currentStep > step.id;
+            const isCompleted = step.isCompleted;
 
             return (
               <li
@@ -56,7 +58,7 @@ export const StepIndicator = ({ currentStep = 1 }) => {
                       isCompleted
                         ? 'bg-[#16A34A] text-white'
                         : isActive
-                        ? 'bg-[#12355B] text-white ring-4 ring-blue-100'
+                        ? 'bg-[#12355B] text-white ring-4 ring-blue-100 shadow-xs'
                         : 'bg-slate-100 text-slate-400 border border-slate-300'
                     }`}
                   >
