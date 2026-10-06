@@ -80,7 +80,7 @@ export async function generateTenderPackagePdf({
     onProgress?.('Preparing package...', 10);
 
     const mergedPdf = await PDFDocument.create();
-    const helveticaFont = await mergedPdf.embedFont(StandardFonts.Helvetica);
+    const helvetica = await mergedPdf.embedFont(StandardFonts.Helvetica);
     const helveticaBold = await mergedPdf.embedFont(StandardFonts.HelveticaBold);
 
     // Filter requirements to included matched ones in order
