@@ -36,7 +36,6 @@ export const en = {
   workflowStep5Desc: "Compile final single PDF with cover page & footers.",
 
   // Features highlight
-  privacyBadge: "100% Client-side Processing",
   privacyDesc: "Your files never leave your browser. Zero server uploads.",
   
   // Tender Summary Card

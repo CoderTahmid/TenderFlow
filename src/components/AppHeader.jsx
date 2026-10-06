@@ -4,7 +4,7 @@ import { useTender } from '../context/TenderContext';
 import { getTranslation } from '../translations';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { HiOutlineDocumentCheck } from 'react-icons/hi2';
-import { FiHelpCircle, FiShield } from 'react-icons/fi';
+import { FiHelpCircle } from 'react-icons/fi';
 
 export const AppHeader = () => {
   const { language } = useTender();
@@ -24,10 +24,6 @@ export const AppHeader = () => {
             <div className="flex items-center gap-2">
               <span className="font-bold text-xl tracking-tight text-[#12355B]">
                 {t('appName')}
-              </span>
-              <span className="hidden sm:inline-flex items-center gap-1 text-[10px] uppercase font-semibold tracking-wider bg-teal-50 text-teal-700 border border-teal-200 px-2 py-0.5 rounded-full">
-                <FiShield className="w-3 h-3 text-teal-600" />
-                {t('privacyBadge')}
               </span>
             </div>
             <p className="text-xs text-slate-500 font-medium hidden sm:block">

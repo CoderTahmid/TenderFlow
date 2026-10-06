@@ -97,7 +97,7 @@ export const DashboardPage = () => {
         <div className="mt-8 pt-6 border-t border-slate-100 flex items-center gap-3 text-xs text-slate-500 font-medium">
           <FiShield className="w-4 h-4 text-teal-600 shrink-0" />
           <span>
-            <strong className="text-slate-800">{t('privacyBadge')}:</strong> {t('privacyDesc')}
+            {t('privacyDesc')}
           </span>
         </div>
       </div>

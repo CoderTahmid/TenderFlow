@@ -36,7 +36,6 @@ export const bn = {
   workflowStep5Desc: "কভার পৃষ্ঠা ও পেজ নম্বর সহ চূড়ান্ত একক পিডিএফ ডাউনলোড করুন।",
 
   // Features highlight
-  privacyBadge: "১০০% ব্রাউজার ভিত্তিক প্রসেসিং",
   privacyDesc: "আপনার ফাইল আপনার ব্রাউজারেই সীমাবদ্ধ। কোনো সার্ভার আপলোড নেই।",
 
   // Tender Summary Card
