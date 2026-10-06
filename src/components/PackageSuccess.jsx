@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTender } from '../context/TenderContext';
 import { getTranslation } from '../translations';
+import confetti from 'canvas-confetti';
 import { FiCheckCircle, FiDownload, FiArrowLeft, FiFileText, FiCalendar, FiLayers } from 'react-icons/fi';
 
 export const PackageSuccess = () => {
@@ -10,8 +11,19 @@ export const PackageSuccess = () => {
   const t = (key) => getTranslation(language, key);
 
   useEffect(() => {
-    // Automatically trigger download when screen loads if package is ready
+    // Automatically trigger download & celebration confetti when screen loads if package is ready
     if (generatedPackage?.blobUrl && generatedPackage?.fileName) {
+      // Trigger confetti celebration
+      try {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 }
+        });
+      } catch (e) {
+        // ignore if canvas confetti fails
+      }
+
       const link = document.createElement('a');
       link.href = generatedPackage.blobUrl;
       link.download = generatedPackage.fileName;
