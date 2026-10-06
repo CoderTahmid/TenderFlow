@@ -38,8 +38,8 @@ export const StepIndicator = ({ currentStep = 1 }) => {
   ];
 
   return (
-    <div className="bg-white border-b border-slate-200 py-3 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-white border-b border-slate-200/80 py-3.5 mb-6">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12">
         <ol className="flex items-center justify-between w-full">
           {steps.map((step, idx) => {
             const isActive = currentStep === step.id;
@@ -52,22 +52,22 @@ export const StepIndicator = ({ currentStep = 1 }) => {
                   idx < steps.length - 1 ? 'flex-1' : ''
                 }`}
               >
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2.5">
                   <div
-                    className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
+                    className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
                       isCompleted
-                        ? 'bg-[#16A34A] text-white'
+                        ? 'bg-[#16A34A] text-white shadow-2xs'
                         : isActive
-                        ? 'bg-[#12355B] text-white ring-4 ring-blue-100 shadow-xs'
+                        ? 'bg-[#12355B] text-white ring-4 ring-blue-100 shadow-2xs font-extrabold'
                         : 'bg-slate-100 text-slate-400 border border-slate-300'
                     }`}
                   >
                     {isCompleted ? <FiCheck className="w-4 h-4 stroke-[3]" /> : step.id}
                   </div>
                   <span
-                    className={`text-xs font-semibold hidden sm:inline ${
+                    className={`text-xs font-bold hidden sm:inline tracking-tight ${
                       isActive
-                        ? 'text-[#12355B] font-bold'
+                        ? 'text-[#12355B]'
                         : isCompleted
                         ? 'text-slate-800'
                         : 'text-slate-400'
@@ -79,7 +79,7 @@ export const StepIndicator = ({ currentStep = 1 }) => {
 
                 {idx < steps.length - 1 && (
                   <div
-                    className={`h-0.5 flex-1 mx-2 sm:mx-4 transition-colors ${
+                    className={`h-0.5 flex-1 mx-3 sm:mx-6 transition-colors ${
                       isCompleted ? 'bg-[#16A34A]' : 'bg-slate-200'
                     }`}
                   />

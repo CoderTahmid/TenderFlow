@@ -17,7 +17,7 @@ function AppContent() {
     <div className="min-h-screen flex flex-col bg-[#F8FAFC]">
       <AppHeader />
 
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <main className="flex-1 max-w-[1700px] w-full mx-auto px-4 sm:px-8 lg:px-12 py-6">
         <Routes>
           <Route path="/" element={<DashboardPage />} />
           <Route path="/workspace" element={<WorkspacePage />} />
@@ -28,10 +28,10 @@ function AppContent() {
         </Routes>
       </main>
 
-      <footer className="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500 font-medium">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <span>{t('footerText')}</span>
-          <span className="text-slate-400">100% Client-Side In-Browser PDF Processing</span>
+      <footer className="bg-white border-t border-slate-200 py-5 text-center text-xs text-slate-500 font-medium">
+        <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-2">
+          <span className="font-semibold text-slate-600">{t('footerText')}</span>
+          <span className="text-slate-400 bg-slate-100 px-2.5 py-1 rounded-md text-[11px] font-mono">100% Client-Side In-Browser PDF Processing</span>
         </div>
       </footer>
     </div>

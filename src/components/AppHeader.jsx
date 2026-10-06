@@ -4,7 +4,7 @@ import { useTender } from '../context/TenderContext';
 import { getTranslation } from '../translations';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { HiOutlineDocumentCheck } from 'react-icons/hi2';
-import { FiHelpCircle } from 'react-icons/fi';
+import { FiHelpCircle, FiGrid, FiFileText } from 'react-icons/fi';
 
 export const AppHeader = () => {
   const { language } = useTender();
@@ -13,8 +13,8 @@ export const AppHeader = () => {
   const t = (key) => getTranslation(language, key);
 
   return (
-    <header className="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-40 shadow-2xs">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-8 lg:px-12 h-16 flex items-center justify-between">
         {/* Logo & Tagline */}
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-[#12355B] flex items-center justify-center text-white shadow-xs group-hover:bg-[#2563EB] transition-colors">
@@ -22,7 +22,7 @@ export const AppHeader = () => {
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-bold text-xl tracking-tight text-[#12355B]">
+              <span className="font-extrabold text-xl tracking-tight text-[#12355B]">
                 {t('appName')}
               </span>
             </div>
@@ -33,36 +33,39 @@ export const AppHeader = () => {
         </Link>
 
         {/* Navigation & Language Switcher */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <nav className="hidden md:flex items-center gap-1">
+        <div className="flex items-center gap-4 sm:gap-6">
+          <nav className="hidden md:flex items-center bg-slate-100/80 p-1 rounded-xl border border-slate-200">
             <Link
               to="/"
-              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
                 location.pathname === '/'
-                  ? 'bg-slate-100 text-[#12355B]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-white text-[#12355B] shadow-2xs border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
+              <FiGrid className="w-3.5 h-3.5" />
               {t('dashboard')}
             </Link>
             <Link
               to="/workspace"
-              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
                 location.pathname === '/workspace'
-                  ? 'bg-slate-100 text-[#12355B]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-white text-[#12355B] shadow-2xs border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
+              <FiFileText className="w-3.5 h-3.5" />
               {t('workspace')}
             </Link>
             <Link
               to="/help"
-              className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-colors ${
+              className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
                 location.pathname === '/help'
-                  ? 'bg-slate-100 text-[#12355B]'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  ? 'bg-white text-[#12355B] shadow-2xs border border-slate-200'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
               }`}
             >
+              <FiHelpCircle className="w-3.5 h-3.5" />
               {t('help')}
             </Link>
           </nav>
